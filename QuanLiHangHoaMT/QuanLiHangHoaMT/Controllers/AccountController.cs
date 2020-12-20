@@ -83,14 +83,7 @@ namespace QuanLiHangHoaMT.Controllers
         //returnUrl la gia tri copy r paste ( la cai paste )
         public ActionResult Login(string returnUrl)
         {
-            if (CheckSession() == 1)
-            {
-                return RedirectToAction("Index", "Home_Ad", new { Area = "Admins" });
-            }
-            else if (CheckSession() == 2)
-            {
-                return RedirectToAction("Index", "Home_Le", new { Area = "Lectures" });
-            }
+            
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -108,17 +101,26 @@ namespace QuanLiHangHoaMT.Controllers
                     using (var db = new LTQLDbContext())
                     {
                             var passToMD5 = GetMD5(acc.Password);
-                            var account = db.Users.Where(m => m.UserName.Equals(acc.UserName) && m.Password.Equals(passToMD5)).Count();
-                        if (account ==1)// check tkhoan mk trong sql để đăng nhập 
+                            var account = db.Users.Where(m => m.UserName.Equals(acc.UserName) && m.Password.Equals(passToMD5)).FirstOrDefault();
+                        if (account != null)// check tkhoan mk trong sql để đăng nhập 
                         {
                             FormsAuthentication.SetAuthCookie(acc.UserName, false);
-                            Session["idUser"] = acc.UserName;
-                            Session["roleUser"] = acc.RoleID;
+                            Session["idUser"] = account.UserName;
+                            Session["roleUser"] = account.RoleID;
+
                             Response.Cookies.Add(new HttpCookie("userCookie", acc.UserName));
                             Response.Cookies.Add(new HttpCookie("roleCookie", acc.RoleID));
-                            return RedirectToAction("Index");
-
+                            if (account.RoleID == "Admin")
+                            {
+                                return RedirectToAction("Index", "Home_Ad", new { Area = "Admins" });
                             }
+                            else if (acc.RoleID == "Lectures")
+                            {
+                                return RedirectToAction("Index", "Home_Le", new { Area = "Lectures" });
+                            }
+
+                            return RedirectToAction("Index");
+                         }
                         ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
                     }
                 }

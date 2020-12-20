@@ -17,8 +17,9 @@ namespace QuanLiHangHoaMT.Areas.Admins
             context.MapRoute(
                 "Admins_default",
                 "Admins/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "QuanLiHangHoaMT.Areas.Admins.Controllers" }
+            ); 
         }
     }
 }

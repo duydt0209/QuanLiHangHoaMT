@@ -19,18 +19,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home_Ad")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home_Ad")</li>  
+                    <li>@Html.ActionLink("Khách Hàng", "Index", "KhachHangs")</li>
+                    <li>@Html.ActionLink("Hàng Hóa", "Index", "HangHoas")</li>
+                    <li>@Html.ActionLink("Loại Hàng", "Index", "LoaiHHs")</li>
+                    <li>@Html.ActionLink("Hóa Đơn", "Index", "HoaDons")</li>
 
-                    @if (Session["idUser"] == null)
-                    {
-                        <li>@Html.ActionLink("Đăng Kí", "Register", "Account")</li>
-                        <li>@Html.ActionLink("Đăng Nhập", "Login", "Account")</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Đăng Xuất", "Logout", "Account")</li>
-                    }
                 </ul>
             </div>
         </div>
