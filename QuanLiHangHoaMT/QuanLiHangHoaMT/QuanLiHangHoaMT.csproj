@@ -133,7 +133,9 @@
     <Compile Include="Areas\Admins\Controllers\HoaDonsController.cs" />
     <Compile Include="Areas\Admins\Controllers\Home_AdController.cs" />
     <Compile Include="Areas\Admins\Controllers\KhachHangsController.cs" />
+    <Compile Include="Areas\Admins\Controllers\KhoesController.cs" />
     <Compile Include="Areas\Admins\Controllers\LoaiHHsController.cs" />
+    <Compile Include="Areas\Admins\Controllers\NhanViensController.cs" />
     <Compile Include="Areas\Lectures\LecturesAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HangHoasController.cs" />
@@ -300,6 +302,16 @@
     <Content Include="Areas\Admins\Views\HoaDons\Details.cshtml" />
     <Content Include="Areas\Admins\Views\HoaDons\Edit.cshtml" />
     <Content Include="Areas\Admins\Views\HoaDons\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\NhanViens\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\NhanViens\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\NhanViens\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\NhanViens\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\NhanViens\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\Khoes\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\Khoes\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\Khoes\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\Khoes\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\Khoes\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
