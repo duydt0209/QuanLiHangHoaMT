@@ -1,0 +1,22 @@
+﻿@model  IEnumerable<QuanLiHangHoaMT.Models.HangHoa>
+@using QuanLiHangHoaMT.Models
+@using System.Linq
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3" style="background-color:deepskyblue;margin-top:5px;text-align:center;">
+            <h3>@Html.DisplayFor(modelItem => item.TenHangHoa) </h3>
+            @Html.Image("../" + item.HinhHH, "alt", "200")<br />
+            @Html.DisplayFor(modelItem => item.DonGia)<br />
+            <a class="btn btn-info btn-sm" href="@Url.Action("Details", "HangHoas", new {id = item.MaLoaiHH})">
+                Xem chi tiết
+            </a>
+        </div>
+    }
+</div>
